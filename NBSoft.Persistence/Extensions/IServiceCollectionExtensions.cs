@@ -5,6 +5,7 @@ using Microsoft.EntityFrameworkCore;
 using NBSoft.Persistence.Contexts;
 using NBSoft.Application.Interfaces.IRepository;
 using NBSoft.Persistence.Repository;
+using System;
 
 namespace NBSoft.Persistence.Extensions
 {
@@ -20,9 +21,7 @@ namespace NBSoft.Persistence.Extensions
         {
             var connectionString = configuration.GetConnectionString("DefaultConnection");
 
-            services.AddDbContext<ApplicationDbContext>(options =>
-               options.UseSqlServer(connectionString,
-                   builder => builder.MigrationsAssembly(typeof(ApplicationDbContext).Assembly.FullName)));
+            services.AddDbContext<ApplicationDbContext>(option => option.UseSqlServer(connectionString, x => x.MigrationsAssembly(typeof(ApplicationDbContext).Assembly.FullName)));
         }
 
         private static void AddRepositories(this IServiceCollection services)

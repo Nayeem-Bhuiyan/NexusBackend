@@ -7,21 +7,23 @@ using NBSoft.Domain.Model.MasterPanel;
 using Microsoft.EntityFrameworkCore.Diagnostics;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
-
+using Microsoft.AspNetCore.Components;
+using Microsoft.EntityFrameworkCore.Design;
 namespace NBSoft.Persistence.Contexts
 {
     public class ApplicationDbContext : IdentityDbContext<UserInfo, UserRole, string>
     {
-        private readonly IDomainEventDispatcher _dispatcher;
 
-        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options,IDomainEventDispatcher dispatcher): base(options)
+        #region MyRegion
+        private readonly IDomainEventDispatcher _dispatcher;
+        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> option, IDomainEventDispatcher dispatcher = null) : base(option)
         {
             _dispatcher = dispatcher;
         }
-
+        #endregion
 
         #region MasterPanel
-            public DbSet<SmartModule> SmartModule { get; set; }
+        public DbSet<SmartModule> SmartModule { get; set; }
         public DbSet<FeatureCategory> FeatureCategory { get; set; }
         public DbSet<SmartFeature> SmartFeature { get; set; }
         public DbSet<AccademicClass> AccademicClass { get; set; }
@@ -137,12 +139,11 @@ namespace NBSoft.Persistence.Contexts
         {
             base.OnConfiguring(optionsBuilder);
 
-            // 
-            optionsBuilder.ConfigureWarnings(warnings =>
-            warnings.Ignore(RelationalEventId.PendingModelChangesWarning)
-        );
+            optionsBuilder.UseSqlServer();
+            optionsBuilder.ConfigureWarnings(warnings =>warnings.Ignore(RelationalEventId.PendingModelChangesWarning));
         }
         #endregion
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
@@ -750,6 +751,7 @@ namespace NBSoft.Persistence.Contexts
             modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
         }
 
+        #region SaveChange_Events
         public override async Task<int> SaveChangesAsync(CancellationToken cancellationToken = new CancellationToken())
         {
             int result = await base.SaveChangesAsync(cancellationToken).ConfigureAwait(false);
@@ -772,5 +774,6 @@ namespace NBSoft.Persistence.Contexts
         {
             return SaveChangesAsync().GetAwaiter().GetResult();
         }
+        #endregion
     }
 }
