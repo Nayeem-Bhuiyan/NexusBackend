@@ -20,3 +20,5 @@
 /NBSoft.SmartApi/bin/Debug/net9.0
 /.vs/NBSoft/v17
 /.vs/NBSoft/DesignTimeBuild
+/.vs/NBSoft/config
+/NBSoft.SmartApi/NBSoft.SmartApi.http
