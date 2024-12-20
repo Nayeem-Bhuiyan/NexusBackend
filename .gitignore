@@ -1,0 +1,20 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/.vs/NBSoft/CopilotIndices/17.12.38.29086
+/NBSoft.Application/bin/Debug/net9.0
+/NBSoft.Application/obj
+/NBSoft.Domain/bin/Debug/net9.0
+/NBSoft.Domain/obj
+/NBSoft.Infrastructure/bin/Debug/net9.0
+/NBSoft.Infrastructure/obj
+/NBSoft.Persistence/bin/Debug/net9.0
+/NBSoft.Persistence/obj
+/NBSoft.Shared/bin/Debug/net9.0
+/NBSoft.Shared/obj
+/NBSoft.WebAPI/bin/Debug/net9.0
+/NBSoft.WebAPI/obj
+/.vs/NBSoft/FileContentIndex
+/NBSoft.SmartApi/obj
+/NBSoft.SmartApi/bin/Debug/net9.0
