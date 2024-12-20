@@ -1,0 +1,6 @@
+@NBSoft.SmartApi_HostAddress = http://localhost:5017
+
+GET {{NBSoft.SmartApi_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

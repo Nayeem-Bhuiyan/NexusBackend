@@ -1,0 +1,31 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net9.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>disable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="13.0.1" />
+    <PackageReference Include="FluentValidation" Version="11.11.0" />
+    <PackageReference Include="FluentValidation.AspNetCore" Version="11.3.0" />
+    <PackageReference Include="MediatR" Version="12.4.1" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="9.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\NBSoft.Domain\NBSoft.Domain.csproj" />
+    <ProjectReference Include="..\NBSoft.Shared\NBSoft.Shared.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Features\CountryInfo\Commands\CreatePlayer\" />
+    <Folder Include="Features\CountryInfo\Commands\DeletePlayer\" />
+    <Folder Include="Features\CountryInfo\Commands\UpdatePlayer\" />
+    <Folder Include="Features\CountryInfo\Queries\GetPlayerById\" />
+    <Folder Include="Features\CountryInfo\Queries\GetPlayersByClub\" />
+    <Folder Include="Features\CountryInfo\Queries\GetPlayersWithPagination\" />
+  </ItemGroup>
+
+</Project>
