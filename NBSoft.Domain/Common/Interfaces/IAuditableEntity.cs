@@ -2,9 +2,12 @@
 {
     public interface IAuditableEntity : IEntity
     {
-        int? CreatedBy { get; set; }
-        DateTime? CreatedDate { get; set; }
-        int? UpdatedBy { get; set; }
-        DateTime? UpdatedDate { get; set; }
+        public int? createdBy { get; set; }
+        public DateTime? createdDate { get; set; }
+        public int? updatedBy { get; set; }
+        public DateTime? updatedDate { get; set; }
+        public int? deletedBy { get; set; }
+        public bool? isDeleted { get; set; }
+        public DateTime? deletedDate { get; set; }
     }
 }

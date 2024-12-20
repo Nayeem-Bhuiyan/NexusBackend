@@ -21,7 +21,27 @@ namespace NBSoft.Persistence.Repository
             _dbContext = dbContext ?? throw new ArgumentNullException(nameof(dbContext));
         }
 
-        public IBaseRepository<T> Repository<T>() where T : BaseAuditableEntity
+        public IBaseRepository<T> Repository_BaseAuditableEntity<T>() where T : BaseAuditableEntity
+        {
+            if (_repositories == null)
+                _repositories = new Hashtable();
+
+            var type = typeof(T).Name;
+
+            if (!_repositories.ContainsKey(type))
+            {
+                var repositoryType = typeof(BaseRepository<>);
+
+                var repositoryInstance = Activator.CreateInstance(repositoryType.MakeGenericType(typeof(T)), _dbContext);
+
+                _repositories.Add(type, repositoryInstance);
+            }
+
+            return (IBaseRepository<T>)_repositories[type];
+        }
+
+
+        public IBaseRepository<T> Repository<T>() where T : BaseModel
         {
             if (_repositories == null)
                 _repositories = new Hashtable();

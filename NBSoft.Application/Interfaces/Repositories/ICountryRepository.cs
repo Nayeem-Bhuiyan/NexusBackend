@@ -1,4 +1,4 @@
-﻿using NBSoft.Domain.Entities;
+﻿using NBSoft.Domain.Model.MasterPanel;
 
 namespace CleanArchitectureDemo.Application.Interfaces.Repositories
 {

@@ -1,5 +1,5 @@
 ﻿using NBSoft.Application.Common.Mappings;
-using NBSoft.Domain.Entities;
+using NBSoft.Domain.Model.MasterPanel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
