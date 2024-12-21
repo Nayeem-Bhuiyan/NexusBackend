@@ -22,3 +22,5 @@
 /.vs/NBSoft/DesignTimeBuild
 /.vs/NBSoft/config
 /NBSoft.SmartApi/NBSoft.SmartApi.http
+/.vs
+/NBSoft.SmartApi/appsettings.json
