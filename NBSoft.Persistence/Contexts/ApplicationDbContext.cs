@@ -101,8 +101,26 @@ namespace NBSoft.Persistence.Contexts
 
 
             #region Rename_Identity_TableName
+
+            #region MyRegion
+            modelBuilder.Entity<IdentityUserLogin<string>>()
+        .HasKey(l => new { l.LoginProvider, l.ProviderKey });
+
+            modelBuilder.Entity<IdentityUserRole<string>>()
+                .HasKey(r => new { r.UserId, r.RoleId });
+
+            modelBuilder.Entity<IdentityUserClaim<string>>()
+                .HasKey(c => c.Id);
+
+            modelBuilder.Entity<IdentityUserToken<string>>()
+                .HasKey(t => new { t.UserId, t.LoginProvider, t.Name });
+
+            #endregion
+
+
+
             modelBuilder.Entity<UserInfo>(entity => { entity.ToTable(name: "UserInfo"); });
-            modelBuilder.Entity<IdentityRole>(entity => { entity.ToTable(name: "Roles"); });
+            modelBuilder.Entity<UserRole>(entity => { entity.ToTable(name: "Roles"); });
             modelBuilder.Entity<IdentityUserRole<string>>(entity => { entity.ToTable("UserRoles"); });
             modelBuilder.Entity<IdentityUserClaim<string>>(entity => { entity.ToTable("UserClaims"); });
             modelBuilder.Entity<IdentityUserLogin<string>>(entity => { entity.ToTable("UserLogins"); });
