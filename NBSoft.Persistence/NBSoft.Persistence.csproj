@@ -27,4 +27,8 @@
     <ProjectReference Include="..\NBSoft.Domain\NBSoft.Domain.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="DB_Backup\" />
+  </ItemGroup>
+
 </Project>
