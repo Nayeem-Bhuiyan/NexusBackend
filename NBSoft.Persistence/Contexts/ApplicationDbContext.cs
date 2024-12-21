@@ -101,13 +101,13 @@ namespace NBSoft.Persistence.Contexts
 
 
             #region Rename_Identity_TableName
-            //modelBuilder.Entity<UserInfo>(entity => { entity.ToTable(name: "UserInfo"); });
-            //modelBuilder.Entity<IdentityRole>(entity => { entity.ToTable(name: "Roles"); });
-            //modelBuilder.Entity<IdentityUserRole<string>>(entity => { entity.ToTable("UserRoles"); });
-            //modelBuilder.Entity<IdentityUserClaim<string>>(entity => { entity.ToTable("UserClaims"); });
-            //modelBuilder.Entity<IdentityUserLogin<string>>(entity => { entity.ToTable("UserLogins"); });
-            //modelBuilder.Entity<IdentityUserToken<string>>(entity => { entity.ToTable("UserTokens"); });
-            //modelBuilder.Entity<IdentityRoleClaim<string>>(entity => { entity.ToTable("RoleClaims"); });
+            modelBuilder.Entity<UserInfo>(entity => { entity.ToTable(name: "UserInfo"); });
+            modelBuilder.Entity<IdentityRole>(entity => { entity.ToTable(name: "Roles"); });
+            modelBuilder.Entity<IdentityUserRole<string>>(entity => { entity.ToTable("UserRoles"); });
+            modelBuilder.Entity<IdentityUserClaim<string>>(entity => { entity.ToTable("UserClaims"); });
+            modelBuilder.Entity<IdentityUserLogin<string>>(entity => { entity.ToTable("UserLogins"); });
+            modelBuilder.Entity<IdentityUserToken<string>>(entity => { entity.ToTable("UserTokens"); });
+            modelBuilder.Entity<IdentityRoleClaim<string>>(entity => { entity.ToTable("RoleClaims"); });
             #endregion
 
             #region SEED_DATA

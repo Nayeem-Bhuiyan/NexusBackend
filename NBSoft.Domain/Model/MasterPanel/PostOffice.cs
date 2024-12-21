@@ -1,5 +1,4 @@
 ﻿using NBSoft.Domain.Common;
-using NBSoft.Domain.Common.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -10,17 +9,20 @@ using System.Threading.Tasks;
 
 namespace NBSoft.Domain.Model.MasterPanel
 {
-    [Table("Country")]
-    public class Country: BaseModel
+    [Table("PostOffice")]
+    public class PostOffice : BaseModel
     {
         [Required]
-        [StringLength(150)]
+        [StringLength(120)]
         public string Name { get; set; }
         [StringLength(50)]
-        public string code { get; set; }
-        [StringLength(50)]
-        public string shortName { get; set; }      
-        [StringLength(50)]
-        public string mobileDialingCode { get; set; } //For BD +880
+        public string postCode { get; set; }
+        public string Location { get; set; }
+       
+
+        [ForeignKey("ThanaId")]
+        public int? ThanaId { get; set; }
+        public Thana Thana { get; set; }
+
     }
 }

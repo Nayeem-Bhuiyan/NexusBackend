@@ -1,5 +1,4 @@
 ﻿using NBSoft.Domain.Common;
-using NBSoft.Domain.Common.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -10,17 +9,14 @@ using System.Threading.Tasks;
 
 namespace NBSoft.Domain.Model.MasterPanel
 {
-    [Table("Country")]
-    public class Country: BaseModel
+    [Table("EducationLevel")]
+    public class EducationLevel: BaseModel
     {
         [Required]
-        [StringLength(150)]
+        [StringLength(100)]
         public string Name { get; set; }
-        [StringLength(50)]
+        [StringLength(30)]
         public string code { get; set; }
-        [StringLength(50)]
-        public string shortName { get; set; }      
-        [StringLength(50)]
-        public string mobileDialingCode { get; set; } //For BD +880
+        public ICollection<Education> Educations { get; set; } = new List<Education>();
     }
 }
