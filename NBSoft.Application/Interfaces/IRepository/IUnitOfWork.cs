@@ -9,9 +9,7 @@ namespace NBSoft.Application.Interfaces.IRepository
 {
     public interface IUnitOfWork : IDisposable
     {
-        IBaseRepository<T> Repository_BaseAuditableEntity<T>() where T : BaseAuditableEntity;
-        IBaseRepository<T> Repository<T>() where T : BaseModel;
-
+        IBaseRepository<T> Repository<T>() where T : BaseAuditableEntity;
         Task<int> Save(CancellationToken cancellationToken);
 
         Task<int> SaveAndRemoveCache(CancellationToken cancellationToken, params string[] cacheKeys);
