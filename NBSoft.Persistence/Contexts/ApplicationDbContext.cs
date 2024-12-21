@@ -13,14 +13,15 @@ namespace NBSoft.Persistence.Contexts
 {
     public class ApplicationDbContext : IdentityDbContext<UserInfo, UserRole, string>
     {
+        public ApplicationDbContext() { }
 
-        #region MyRegion
+
         private readonly IDomainEventDispatcher _dispatcher;
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> option, IDomainEventDispatcher dispatcher = null) : base(option)
         {
             _dispatcher = dispatcher;
         }
-        #endregion
+        
 
         #region MasterPanel
         public DbSet<SmartModule> SmartModule { get; set; }
@@ -139,8 +140,8 @@ namespace NBSoft.Persistence.Contexts
         {
             base.OnConfiguring(optionsBuilder);
 
-            optionsBuilder.UseSqlServer();
-            optionsBuilder.ConfigureWarnings(warnings =>warnings.Ignore(RelationalEventId.PendingModelChangesWarning));
+            optionsBuilder.UseSqlServer("Data Source=NAYEEM-BHUIYAN;Initial Catalog=NBSoftDB_API;User ID=sa;Password=open;Persist Security Info=True;Trust Server Certificate=True;");
+            optionsBuilder.ConfigureWarnings(warnings => warnings.Ignore(RelationalEventId.PendingModelChangesWarning));
         }
         #endregion
 
