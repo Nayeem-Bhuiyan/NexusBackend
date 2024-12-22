@@ -8,6 +8,8 @@ Tools
 
 # Visual Studio:2022 (v17.12)
 
-# MediatR-12.4.1
+# CQRS design pattern using MediatR-12.4.1
 
 # Clean Architecture
+
+
